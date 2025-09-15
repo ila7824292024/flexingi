@@ -3,89 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Александр Петров | Портфолио</title>
+    <title>Minimal Blog | Элегантный блог о дизайне и технологиях</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <header class="header">
-            <nav class="nav">
-                <ul>
-                    <li><a href="#about">Обо мне</a></li>
-                    <li><a href="#projects">Проекты</a></li>
-                    <li><a href="#contact">Контакты</a></li>
-                </ul>
-            </nav>
+            <div class="header-content">
+                <h1 class="logo">Minimal Blog</h1>
+                <nav class="nav">
+                    <a href="#" class="nav-link active">Главная</a>
+                    <a href="#" class="nav-link">Статьи</a>
+                    <a href="#" class="nav-link">Обо мне</a>
+                    <a href="#" class="nav-link">Контакты</a>
+                </nav>
+            </div>
         </header>
 
         <main class="main">
-            <section class="hero">
-                <h1 class="hero-title">Александр Петров</h1>
-                <p class="hero-subtitle">Веб-разработчик & UI/UX дизайнер</p>
-                <p class="hero-description">
-                    Создаю современные и функциональные веб-приложения 
-                    с акцентом на пользовательский опыт и чистый код.
-                </p>
-            </section>
-
-            <section id="about" class="section">
-                <h2 class="section-title">Обо мне</h2>
-                <div class="about-content">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a dapibus magna, 
-                        ac interdum nisl. Suspendisse eget fringilla nibh, eu commodo arcu. Donec lacinia 
-                        tempor velit sed tincidunt.
-                    </p>
-                    <p>
-                        Aliquam porttitor nulla purus, vel vulputate ipsum faucibus sed. Phasellus sodales, 
-                        lorem vel cursus vehicula, ante purus lacinia dui, interdum fringilla massa eros ut dui.
-                    </p>
-                    <p>
-                        Nullam et ipsum ex. Donec ut iaculis massa. Duis vel ullamcorper dolor. Suspendisse 
-                        tristique dolor risus, nec laoreet dui aliquet maximus.
-                    </p>
+            <article class="featured-article">
+                <div class="article-image">
+                    <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=500&fit=crop" alt="Дизайн интерьера в современном стиле">
                 </div>
-            </section>
-
-            <section id="projects" class="section">
-                <h2 class="section-title">Проекты</h2>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <h3>Электронная коммерция</h3>
-                        <p>Полностью адаптивный интернет-магазин с системой управления заказами</p>
-                        <span class="project-tag">React</span>
-                        <span class="project-tag">Node.js</span>
-                    </div>
-                    <div class="project-card">
-                        <h3>Корпоративный сайт</h3>
-                        <p>Современный корпоративный портал с системой управления контентом</p>
-                        <span class="project-tag">Vue.js</span>
-                        <span class="project-tag">Laravel</span>
-                    </div>
-                    <div class="project-card">
-                        <h3>Мобильное приложение</h3>
-                        <p>Кроссплатформенное приложение для управления персональными финансами</p>
-                        <span class="project-tag">React Native</span>
-                        <span class="project-tag">Firebase</span>
+                <div class="article-content">
+                    <span class="article-category">Дизайн интерьера</span>
+                    <h2 class="article-title">Современные тенденции в дизайне жилых пространств</h2>
+                    <p class="article-excerpt">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elitorire.  
+                        Aenean a dapibus magna, ac interdum nisl. Suspendisse egetil fringilla nibh, eu commodo arcu.
+                    </p>
+                    <div class="article-meta">
+                        <span class="article-date">15 сентября 2024</span>
+                        <span class="article-read-time">5 мин чтения</span>
                     </div>
                 </div>
-            </section>
+            </article>
 
-            <section id="contact" class="section">
-                <h2 class="section-title">Контакты</h2>
-                <div class="contact-content">
-                    <p>Готовы начать новый проект? Свяжитесь со мной удобным способом:</p>
-                    <div class="contact-links">
-                        <a href="mailto:alexander@example.com" class="contact-link">alexander@example.com</a>
-                        <a href="tel:+79161234567" class="contact-link">+7 (916) 123-45-67</a>
+            <div class="articles-grid">
+                <article class="article-card">
+                    <div class="article-card-image">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400&h=250&fit=crop" alt="Веб-дизайн">
                     </div>
-                </div>
-            </section>
+                    <div class="article-card-content">
+                        <span class="article-category">Веб-дизайн</span>
+                        <h3>Принципы минимализма в современном веб-дизайне</h3>
+                        <p class="article-excerpt">
+                            Donec lacinia tempor velite sed tincidunt. Aliquam porttitor nulla purus, vel vulputater ipsum faucibus sed.
+                        </p>
+                        <div class="article-meta">
+                            <span class="article-date">12 сентября 2024</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-card-image">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop" alt="Маркетинг">
+                    </div>
+                    <div class="article-card-content">
+                        <span class="article-category">Маркетинг</span>
+                        <h3>Эффективные стратегии цифрового маркетинга в 2024 году</h3>
+                        <p class="article-excerpt">
+                            Phasellus sodales, lorem vel cursus vehi ante purus laciniodui, interdum fringilla massa eros ut duir.
+                        </p>
+                        <div class="article-meta">
+                            <span class="article-date">10 сентября 2024</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-card-image">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=250&fit=crop" alt="Технологии">
+                    </div>
+                    <div class="article-card-content">
+                        <span class="article-category">Технологии</span>
+                        <h3>Будущее искусственного интеллекта в повседневной жизни</h3>
+                        <p class="article-excerpt">
+                            Nullam et ipsum ex. Donec ut iaculis massa. Duis vel ullamcor per dolor. Suspendisse tristique dolor risus.
+                        </p>
+                        <div class="article-meta">
+                            <span class="article-date">8 сентября 2024</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-card-image">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=400&h=250&fit=crop" alt="Бизнес">
+                    </div>
+                    <div class="article-card-content">
+                        <span class="article-category">Бизнес</span>
+                        <h3>Как построить успешный стартап в современных условиях</h3>
+                        <p class="article-excerpt">
+                            Nec laoreet du aliquet maximus. Maecenas tempus congue arcu, si amet auctor dui efficitur in.
+                        </p>
+                        <div class="article-meta">
+                            <span class="article-date">5 сентября 2024</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-card-image">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=250&fit=crop" alt="Фотография">
+                    </div>
+                    <div class="article-card-content">
+                        <span class="article-category">Фотография</span>
+                        <h3>Искусство композиции в современной фотографии</h3>
+                        <p class="article-excerpt">
+                            Proin ac auctor nisi. Phasellus luctus eur neque sollicitudin rutrum. Curabitur ipsum justo.
+                        </p>
+                        <div class="article-meta">
+                            <span class="article-date">3 сентября 2024</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-card-image">
+                        <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?w=400&h=250&fit=crop" alt="Путешествия">
+                    </div>
+                    <div class="article-card-content">
+                        <span class="article-category">Путешествия</span>
+                        <h3>Самые красивые места для посещения в этом году</h3>
+                        <p class="article-excerpt">
+                            Sodales in lectus non, molestie ullamcorper elit, orciro varius natoque. Lorem ipsum dolor sit amet.
+                        </p>
+                        <div class="article-meta">
+                            <span class="article-date">1 сентября 2024</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
         </main>
 
         <footer class="footer">
-            <p>&copy; 2024 Александр Петров. Все права защищены.</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Minimal Blog</h4>
+                    <p>Элегантный блог о дизайне, технологиях и современном образе жизни.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Категории</h4>
+                    <a href="#">Дизайн</a>
+                    <a href="#">Технологии</a>
+                    <a href="#">Бизнес</a>
+                    <a href="#">Путешествия</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <a href="mailto:hello@minimalblog.com">hello@minimalblog.com</a>
+                    <div class="social-links">
+                        <a href="#">Twitter</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Minimal Blog. Все права защищены.</p>
+            </div>
         </footer>
     </div>
 </body>
