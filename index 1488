@@ -1,1 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СТАЛКЕР | Зона Отчуждения</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="scanlines"></div>
+    <div class="noise"></div>
+    
+    <header class="terminal-header">
+        <div class="container">
+            <h1 class="glitch" data-text="СТАЛКЕР">СТАЛКЕР</h1>
+            <p class="subtitle">// Зона Отчуждения //</p>
+        </div>
+    </header>
 
+    <nav class="terminal-nav">
+        <div class="container">
+            <ul>
+                <li><a href="#about" class type="button">[О ЗОНЕ]</a></li>
+                <li><a href="#anomalies" class type="button">[АНОМАЛИИ]</a></li>
+                <li><a href="#factions" class type="button">[ФРАКЦИИ]</a></li>
+                <li><a href="#map" class type="button">[КАРТА]</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="terminal-main">
+        <section id="about" class="terminal-section">
+            <div class="container">
+                <h2>> ИНФОРМАЦИЯ О ЗОНЕ</h2>
+                <div class="typewriter">
+                    <p>║</p>
+                    <p>║ █▓▒░ ВТОРОЕ ЧЕРНОБЫЛЬСКОЕ КАТАКЛИЗМ ░▒▓█</p>
+                    <p>║ Дата: 12.04.2006</p>
+                    <p>║ Статус: АКТИВНАЯ АНОМАЛЬНАЯ ЗОНА</p>
+                    <p>║</p>
+                    <p>║ Зона Отчуждения - территория, подвергшаяся</p>
+                    <p>║ воздействию необъяснимых аномальных явлений.</p>
+                    <p>║ Гравитационные искажения, мутанты, артефакты...</p>
+                    <p>║ Выживание гарантировано только опытным сталкерам.</p>
+                    <p>║</p>
+                    <p>║ ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="anomalies" class="terminal-section">
+            <div class="container">
+                <h2>> КЛАССИФИКАЦИЯ АНОМАЛИЙ</h2>
+                <div class="anomaly-list">
+                    <div class="anomaly-item">
+                        <h3>> ЭЛЕКТРА</h3>
+                        <p>│ Тип: электрическая</p>
+                        <p>│ Опасность: высокая</p>
+                        <p>│ Признаки: статический разряд, искрение</p>
+                    </div>
+                    <div class="anomaly-item">
+                        <h3>> ЖАРКА</h3>
+                        <p>│ Тип: термическая</p>
+                        <p>│ Опасность: крайне высокая</p>
+                        <p>│ Признаки: марево, искажение воздуха</p>
+                    </div>
+                    <div class="anomaly-item">
+                        <h3>> ВОРОНКА</h3>
+                        <p>│ Тип: гравитационная</p>
+                        <p>│ Опасность: смертельная</p>
+                        <p>│ Признаки: вихревое движение пыли</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="factions" class="terminal-section">
+            <div class="container">
+                <h2>> ФРАКЦИИ ЗОНЫ</h2>
+                <div class="faction-grid">
+                    <div class="faction-card">
+                        <h3>> ДОЛГ</h3>
+                        <p>│ Идеология: уничтожение Зоны</p>
+                        <p>│ Вооружение: тяжёлое</p>
+                        <p>│ Статус: враждебен</p>
+                    </div>
+                    <div class="faction-card">
+                        <h3>> СВОБОДА</h3>
+                        <p>│ Идеология: изучение Зоны</p>
+                        <p>│ Вооружение: лёгкое</p>
+                        <p>│ Статус: нейтрален</p>
+                    </div>
+                    <div class="faction-card">
+                        <h3>> УЧЁНЫЕ</h3>
+                        <p>│ Идеология: исследование</p>
+                        <p>│ Вооружение: слабое</p>
+                        <p>│ Статус: дружелюбен</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="map" class="terminal-section">
+            <div class="container">
+                <h2>> КАРТА ЗОНЫ</h2>
+                <div class="zone-map">
+                    <pre class="ascii-art">
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ▓
+▓ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ▓
+▓ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ▓
+▓ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ▓
+▓ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ▓
+▓ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ▓
+▓ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ▓
+▓ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+                    </pre>
+                    <div class="map-markers">
+                        <span class="marker" style="top: 20%; left: 30%;">▲ ЧАЭС</span>
+                        <span class="marker" style="top: 60%; left: 70%;">▼ РОСТОК</span>
+                        <span class="marker" style="top: 40%; left: 50%;">● АГРОПРОМ</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="terminal-footer">
+        <div class="container">
+            <p>> СИСТЕМА ОБНАРУЖИЛА ВАС: [НЕИЗВЕСТНЫЙ СТАЛКЕР]</p>
+            <p>> РЕКОМЕНДАЦИЯ: ВЕРНУТЬСЯ В БЕЗОПАСНУЮ ЗОНУ</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
