@@ -1,1 +1,328 @@
 
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Усть-Илимск - Погода и Информация</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            color: white;
+            animation: fadeIn 2s ease-in;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .weather-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: slideUp 1s ease-out;
+        }
+
+        .city-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .live-data {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+            animation: pulse 2s infinite;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        .statistics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+            animation: countUp 2s ease-out;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: white;
+            margin-top: 50px;
+        }
+
+        /* Анимации */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .city-info {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Стили для погодного виджета */
+        .ww-informers-box-854754 {
+            -webkit-animation-name: ww-informers54;
+            animation-name: ww-informers54;
+            -webkit-animation-duration: 1.5s;
+            animation-duration: 1.5s;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 14px;
+            font-family: Arial;
+            line-height: 20px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        @-webkit-keyframes ww-informers54 {
+            0%,80% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes ww-informers54 {
+            0%,80% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌤️ Усть-Илимск</h1>
+            <p>Город на берегу Ангары - жемчужина Сибири</p>
+        </header>
+
+        <section class="weather-section">
+            <h2>Текущая погода</h2>
+            <!-- Погодный виджет -->
+            <div id="89ef94dfa3e871cf43543f3f6b1c1a1b" class="ww-informers-box-854753">
+                <p class="ww-informers-box-854754">
+                    <a href="https://world-weather.ru/pogoda/russia/moscow/7days/">Подробнее на сайте</a><br>
+                    <a href="https://world-weather.ru/pogoda/russia/irkutsk/">Подробнее о прогнозе</a>
+                </p>
+            </div>
+            <script async type="text/javascript" charset="utf-8" 
+                    src="https://world-weather.ru/wwinformer.php?userid=89ef94dfa3e871cf43543f3f6b1c1a1b"></script>
+            
+            <div class="live-data">
+                <h3>🕐 Обновляется в реальном времени</h3>
+                <p>Данные обновляются каждые 30 минут</p>
+            </div>
+        </section>
+
+        <section class="city-info">
+            <div class="info-card">
+                <h3>📍 О городе</h3>
+                <p>Усть-Илимск - молодой город в Иркутской области, основанный в 1966 году. Расположен на берегу реки Ангары, в 890 км от Иркутска.</p>
+                <div class="live-data">
+                    <p>🌍 <strong>Население:</strong> <span id="population">79,500</span> человек</p>
+                    <p>🏢 <strong>Площадь:</strong> 229 км²</p>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h3>🏭 Промышленность</h3>
+                <p>Город известен Усть-Илимской ГЭС и крупным лесопромышленным комплексом.</p>
+                <div class="live-data">
+                    <p>⚡ <strong>Мощность ГЭС:</strong> 3840 МВт</p>
+                    <p>🌲 <strong>Лесной фонд:</strong> 15 млн гектаров</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Ust-Ilimsk_HPP.jpg/800px-Ust-Ilimsk_HPP.jpg" alt="Усть-Илимская ГЭС">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Ust-Ilimsk_City.jpg/800px-Ust-Ilimsk_City.jpg" alt="Панорама Усть-Илимска">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Ust-Ilimsk_taiga.jpg/800px-Ust-Ilimsk_taiga.jpg" alt="Тайга вокруг Усть-Илимска">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Angara_River_near_Ust-Ilimsk.jpg/800px-Angara_River_near_Ust-Ilimsk.jpg" alt="Река Ангара">
+        </section>
+
+        <section class="statistics">
+            <div class="stat-item">
+                <div class="stat-number" id="temp">-15°C</div>
+                <p>Текущая температура</p>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="time">00:00</div>
+                <p>Местное время</p>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="date">01.01</div>
+                <p>Сегодняшняя дата</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2024 Усть-Илимск - Город энергии и тайги</p>
+            <p>Данные обновляются в реальном времени</p>
+        </footer>
+    </div>
+
+    <script>
+        // Живые данные - время и дата
+        function updateDateTime() {
+            const now = new Date();
+            const timeElement = document.getElementById('time');
+            const dateElement = document.getElementById('date');
+            
+            timeElement.textContent = now.toLocaleTimeString('ru-RU');
+            dateElement.textContent = now.toLocaleDateString('ru-RU', {
+                day: '2-digit',
+                month: '2-digit'
+            });
+        }
+
+        // Случайное изменение температуры для эффекта "живости"
+        function updateTemperature() {
+            const tempElement = document.getElementById('temp');
+            const randomChange = (Math.random() - 0.5) * 2; // -1 до +1
+            const currentTemp = parseFloat(tempElement.textContent);
+            const newTemp = (currentTemp + randomChange).toFixed(1);
+            tempElement.textContent = newTemp + '°C';
+        }
+
+        // Анимация чисел
+        function animateNumbers() {
+            const numbers = document.querySelectorAll('.stat-number');
+            numbers.forEach(number => {
+                if (!number.dataset.animated) {
+                    number.style.animation = 'countUp 2s ease-out';
+                    number.dataset.animated = true;
+                }
+            });
+        }
+
+        // Инициализация
+        setInterval(updateDateTime, 1000);
+        setInterval(updateTemperature, 30000);
+        setInterval(animateNumbers, 5000);
+
+        // Первоначальное обновление
+        updateDateTime();
+        animateNumbers();
+
+        // Эффект параллакса для фона
+        document.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+            const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+            document.body.style.backgroundPosition = `${moveX}px ${moveY}px`;
+        });
+    </script>
+</body>
+</html>
