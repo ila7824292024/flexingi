@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>История Чернобыля и Припяти</title>
+    <title>Боевые дробовики: AA-12, Вепрь-12, Сайга-12</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -12,37 +13,55 @@
             font-family: 'Arial', sans-serif;
         }
         
+        :root {
+            --primary: #2c3e50;
+            --accent: #c1392b;
+            --light: #ecf0f1;
+            --dark: #1a2530;
+            --gray: #7f8c8d;
+        }
+        
         body {
             background-color: #f5f5f5;
             color: #333;
             line-height: 1.6;
         }
         
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header */
         header {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('https://placehold.co/1200x400/2c3e50/ffffff?text=Чернобыль+и+Припять') no-repeat center center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+                        url('https://images.unsplash.com/photo-1584960723955-b0e8a4d09b99?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
             color: white;
             text-align: center;
             padding: 100px 20px;
+            border-bottom: 5px solid var(--accent);
         }
         
         header h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
         
         header p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             max-width: 800px;
             margin: 0 auto;
         }
         
+        /* Navigation */
         nav {
-            background-color: #2c3e50;
+            background-color: var(--primary);
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
         
         nav ul {
@@ -50,10 +69,11 @@
             justify-content: center;
             list-style: none;
             padding: 15px 0;
+            flex-wrap: wrap;
         }
         
         nav ul li {
-            margin: 0 20px;
+            margin: 5px 20px;
         }
         
         nav ul li a {
@@ -61,128 +81,193 @@
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        nav ul li a i {
+            margin-right: 8px;
         }
         
         nav ul li a:hover {
-            color: #3498db;
+            color: var(--accent);
+            background-color: rgba(255, 255, 255, 0.1);
         }
         
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        
-        section {
-            margin-bottom: 60px;
-            background: white;
+        /* Main content */
+        .shotgun-section {
+            background-color: white;
             border-radius: 8px;
             padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--accent);
+        }
+        
+        .shotgun-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        .shotgun-header h2 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-right: 15px;
+        }
+        
+        .shotgun-header .origin {
+            background-color: var(--primary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .shotgun-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .shotgun-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 8px;
+            overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
-        h2 {
-            color: #2c3e50;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #3498db;
-        }
-        
-        .image-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-        
-        .image-card {
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        
-        .image-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .image-card img {
+        .shotgun-image img {
             width: 100%;
-            height: 200px;
+            height: 300px;
             object-fit: cover;
             display: block;
+            transition: transform 0.5s;
         }
         
-        .image-card p {
+        .shotgun-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .shotgun-info {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .spec-item {
+            background-color: #f9f9f9;
             padding: 15px;
-            background: white;
-        }
-        
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 40px auto;
-        }
-        
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            background-color: #2c3e50;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -3px;
-        }
-        
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            width: 50%;
-            box-sizing: border-box;
-        }
-        
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: white;
-            border: 4px solid #3498db;
-            border-radius: 50%;
-            top: 15px;
-            right: -13px;
-            z-index: 1;
-        }
-        
-        .left {
-            left: 0;
-        }
-        
-        .right {
-            left: 50%;
-        }
-        
-        .right::after {
-            left: -13px;
-        }
-        
-        .timeline-content {
-            padding: 20px;
-            background-color: white;
             border-radius: 6px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            border-left: 3px solid var(--accent);
         }
         
+        .spec-item h4 {
+            color: var(--primary);
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+        
+        .spec-item p {
+            color: var(--dark);
+            font-weight: bold;
+        }
+        
+        /* Comparison table */
+        .comparison {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .comparison h2 {
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        
+        /* Footer */
         footer {
-            background-color: #2c3e50;
+            background-color: var(--dark);
             color: white;
             text-align: center;
             padding: 30px 0;
             margin-top: 40px;
         }
         
+        footer p {
+            margin: 10px 0;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .footer-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        /* Responsive */
         @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            header p {
+                font-size: 1.1rem;
+            }
+            
             nav ul {
                 flex-direction: column;
                 align-items: center;
@@ -192,145 +277,235 @@
                 margin: 10px 0;
             }
             
-            .timeline::after {
-                left: 31px;
+            .shotgun-header {
+                flex-direction: column;
+                align-items: flex-start;
             }
             
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-            
-            .timeline-item::after {
-                left: 21px;
-            }
-            
-            .right {
-                left: 0;
+            .shotgun-header .origin {
+                margin-top: 10px;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Чернобыль и Припять: История трагедии</h1>
-        <p>Исследуйте историю одной из самых страшных техногенных катастроф в истории человечества и города-призрака, который она оставила после себя.</p>
+        <h1>Боевые дробовики</h1>
+        <p>Изучите три легендарных дробовика: американский AA-12 и российские Вепрь-12 и Сайга-12</p>
     </header>
     
     <nav>
         <ul>
-            <li><a href="#intro">Введение</a></li>
-            <li><a href="#history">История</a></li>
-            <li><a href="#pripyat">Припять</a></li>
-            <li><a href="#disaster">Катастрофа</a></li>
-            <li><a href="#gallery">Галерея</a></li>
+            <li><a href="#aa12"><i class="fas fa-fire"></i> AA-12</a></li>
+            <li><a href="#vepr"><i class="fas fa-paw"></i> Вепрь-12</a></li>
+            <li><a href="#saiga"><i class="fas fa-shield-alt"></i> Сайга-12</a></li>
+            <li><a href="#comparison"><i class="fas fa-balance-scale"></i> Сравнение</a></li>
         </ul>
     </nav>
     
     <div class="container">
-        <section id="intro">
-            <h2>Введение</h2>
-            <p>26 апреля 1986 года произошла авария на Чернобыльской атомной электростанции, навсегда изменившая жизни тысяч людей и оставившая неизгладимый след в истории человечества. Эта катастрофа стала не только крупнейшей аварией в истории атомной энергетики, но и символом хрупкости человеческих технологий перед силами природы.</p>
-            <p>Сегодня Чернобыльская зона отчуждения представляет собой уникальное место, где природа постепенно reclaims территорию, когда-то занятую человеком, а город-призрак Припять служит мрачным напоминанием о событиях того рокового дня.</p>
-        </section>
-        
-        <section id="history">
-            <h2>История Чернобыльской АЭС</h2>
-            <p>Строительство Чернобыльской атомной электростанции началось в 1970 году, а первый реактор был запущен в 1977. Станция располагалась near города Припять, в 18 километрах от district центра Чернобыль и в 16 километрах от границы с Белоруссией.</p>
-            <p>К 1986 году на станции работали четыре реактора типа РБМК-1000 (реактор большой мощности канальный), каждый мощностью 1000 МВт. Пятый реактор находился в стадии строительства и должен был быть запущен в конце 1986 года.</p>
-            <p>АЭС считалась одной из самых современных и безопасных в Советском Союзе, а город Припять, построенный для работников станции, был образцом советского градостроительства с развитой инфраструктурой и высоким уровнем жизни.</p>
-        </section>
-        
-        <section id="pripyat">
-            <h2>Город Припять: Мечта, ставшая призраком</h2>
-            <p>Припять был основан 4 февраля 1970 года как город-спутник Чернобыльской АЭС. К 1986 году его население составляло около 49 000 человек, средний возраст которых был всего 26 лет. Это был молодой, перспективный город с развитой инфраструктурой.</p>
-            <p>В Припяти было 15 детских садов, 5 школ, профессионально-техническое училище, больница, 3 культурных центра, 10 библиотек, кинотеатр, школа искусств, стадион, парк, множество магазинов и кафе. Город считался образцово-показательным и был гордостью советской атомной энергетики.</p>
-            <p>После эвакуации 27 апреля 1986 года город навсегда опустел, превратившись в огромный музей под открытым небом, застывший во времени советской эпохи.</p>
-        </section>
-        
-        <section id="disaster">
-            <h2>Хронология катастрофы</h2>
-            <div class="timeline">
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <h3>25 апреля 1986, 01:06</h3>
-                        <p>Начало плановой остановки 4-го энергоблока для проведения профилактических работ. Во время остановки планировалось провести испытания турбогенератора.</p>
-                    </div>
+        <section id="aa12" class="shotgun-section">
+            <div class="shotgun-header">
+                <h2>AA-12</h2>
+                <span class="origin">США</span>
+            </div>
+            <div class="shotgun-content">
+                <div class="shotgun-image">
+                    <img src="https://images.unsplash.com/photo-1584960723955-b0e8a4d09b99?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Дробовик AA-12">
                 </div>
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <h3>25 апреля, 14:00</h3>
-                        <p>Мощность реактора была снижена до 50% в соответствии с программой испытаний. Неожиданно поступило указание отложить испытания из-за потребности в энергии соседней энергосистемы.</p>
-                    </div>
-                </div>
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <h3>25 апреля, 23:10</h3>
-                        <p>Диспетчер дал разрешение на продолжение снижения мощности. К этому времени реактор работал нестабильно из-за накопления ксенона-135 ("йодная яма").</p>
-                    </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <h3>26 апреля, 00:28</h3>
-                        <p>При переходе с локального автоматического регулирования на автоматический регулятор общей мощности оператор не смог удержать мощность реактора, которая упала почти до нуля.</p>
-                    </div>
-                </div>
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <h3>26 апреля, 01:23:04</h3>
-                        <p>Начало эксперимента. Турбогенератор был отключен от пара, началось снижение частоты вращения и подачи воды.</p>
-                    </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <h3>26 апреля, 01:23:40</h3>
-                        <p>Оператор нажал кнопку аварийной защиты АЗ-5, которая должна была остановить реактор. Однако вместо снижения мощности начался ее резкий рост.</p>
-                    </div>
-                </div>
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <h3>26 апреля, 01:24</h3>
-                        <p>Произошел первый взрыв, который сорвал и отбросил крышу реакторного зала. Через несколько секунд последовал второй, более мощный взрыв.</p>
+                <div class="shotgun-info">
+                    <p>AA-12 (Auto Assault-12) — американский автоматический дробовик, разработанный Максвеллом Этчисоном. Изначально проектировался как оружие для ближнего боя, способное вести полностью автоматический огонь.</p>
+                    <p>Дробовик использует систему автоматики на основе свободного затвора и отдачи с выкатом ствола, что позволяет снизить отдачу и сделать стрельбу более комфортной даже мощными патронами.</p>
+                    
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <h4>Калибр</h4>
+                            <p>12/70</p>
+                        </div>
+                        <div class="spec-item">
+                            <h4>Длина</h4>
+                            <p>991 мм</p>
+                        </div>
+                        <div class="spec-item">
+                            <h4>Вес</h4>
+                            <p>5,2 кг</p>
+                        </div>
+                        <div class="spec-item">
+                            <h4>Ёмкость магазина</h4>
+                            <p>8 или 20 патронов</p>
+                        </div>
+                        <div class="spec-item">
+                            <h4>Темп стрельбы</h4>
+                            <p>300 выстр/мин</p>
+                        </div>
+                        <div class="spec-item">
+                            <h4>Применение</h4>
+                            <p>Ближний бой, штурмовые операции</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
         
-        <section id="gallery">
-            <h2>Галерея</h2>
-            <div class="image-grid">
-                <div class="image-card">
-                    <img src="https://placehold.co/300x200/34495e/ffffff?text=Чернобыльская+АЭС" alt="Чернобыльская АЭС">
-                    <p>Чернобыльская атомная электростанция до аварии</p>
+        <section id="vepr" class="shotgun-section">
+            <div class="shotgun-header">
+                <h2>Вепрь-12</h2>
+                <span class="origin">Россия</span>
+            </div>
+            <div class="shotgun-content">
+                <div class="shotgun-image">
+                    <img src="https://images.unsplash.com/photo-1596452794051-5bdf7165f0dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Дробовик Вепрь-12">
                 </div>
-                <div class="image-card">
-                    <img src="https://placehold.co/300x200/34495e/ffffff?text=Припять+до+аварии" alt="Припять до аварии">
-                    <p>Город Припять в 1980-х годах</p>
-                </div>
-                <div class="image-card">
-                    <img src="https://placehold.co/300x200/34495e/ffffff?text=4-й+энергоблок" alt="4-й энергоблок после аварии">
-                    <p>Разрушенный 4-й энергоблок после взрыва</p>
-                </div>
-                <div class="image-card">
-                    <img src="https://placehold.co/300x200/34495e/ffffff?text=Ликвидаторы" alt="Ликвидаторы">
-                    <p>Ликвидаторы последствий аварии</p>
-                </div>
-                <div class="image-card">
-                    <img src="https://placehold.co/300x200/34495e/ffffff?text=Заброшенная+Припять" alt="Заброшенная Припять">
-                    <p>Заброшенные здания в Припяти</p>
-                </div>
-                <div class="image-card">
-                    <img src="https://placehold.co/300x200/34495e/ffffff?text=Саркофаг" alt="Саркофаг">
-                    <p>Новый безопасный конфайнмент (саркофаг)</p>
+                <div class="shotgun-info">
+                    <p>Вепрь-12 — российский самозарядный дробовик, разработанный на заводе "Молот" в Вятских Полянах. Оружие создано на основе пулемета Калашникова (ПК) и использует газоотводную автоматику.</p>
+                    <p>Дробовик отличается высокой надежностью и способностью работать с различными типами патронов 12 калибра. Широко используется в силовых структурах России.</p>
+                    
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <h4>Калибр</h4>
+                            <p>12/70, 12/76</p>
+                        </div>
+                        <div class="spec-item">
+                            <h4>Длина</h4>
+                            <p>1145 мм</p>
+                        </div>
+                        <div class="spec-item">
+                            <h4>Вес</h4>
+                            <p>4,5 кг</p>
+                        </div>
+                        <div class="spec-item">
+                            <h4>Ёмкость магазина</h4>
+                            <p>4-8 патронов</p>
+                        </div>
+                        <div class="spec-item">
+                            <h4>Принцип работы</h4>
+                            <p>Газоотводная автоматика</p>
+                        </div>
+                        <div class="spec-item">
+                            <h4>Применение</h4>
+                            <p>Полиция, охранные структуры</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
+        
+        <section id="saiga" class="shotgun-section">
+            <div class="shotgun-header">
+                <h2>Сайга-12</h2>
+                <span class="origin">Россия</span>
+            </div>
+            <div class="shotgun-content">
+                <div class="shotgun-image">
+                    <img src="https://images.unsplash.com/photo-1616634375264-2d2e17736a36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Дробовик Сайга-12">
+                </div>
+                <div class="shotgun-info">
+                    <p>Сайга-12 — семейство российских самозарядных гладкоствольных ружей, разработанных на базе автомата Калашникова. Выпускается Ижевским машиностроительным заводом.</p>
+                    <p>Оружие пользуется популярностью как у силовых структур, так и у гражданских лиц для самообороны, охоты и спортивной стрельбы. Отличается высокой надежностью и простотой обслуживания.</p>
+                    
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <h4>Калибр</h4>
+                            <p>12/70, 12/76</p>
+                        </div>
+                        <div class="spec-item">
+                            <h4>Длина</h4>
+                            <p>1145 мм</p>
+                        </div>
+                        <div class="spec-item">
+                            <h4>Вес</h4>
+                            <p>3,6 кг</p>
+                        </div>
+                        <div class="spec-item">
+                            <h4>Ёмкость магазина</h4>
+                            <p>2-10 патронов</p>
+                        </div>
+                        <div class="spec-item">
+                            <h4>Принцип работы</h4>
+                            <p>Газоотводная автоматика</p>
+                        </div>
+                        <div class="spec-item">
+                            <h4>Применение</h4>
+                            <p>Охота, самооборона, спорт</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="comparison" class="comparison">
+            <h2>Сравнительная таблица</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Характеристика</th>
+                        <th>AA-12</th>
+                        <th>Вепрь-12</th>
+                        <th>Сайга-12</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Страна</td>
+                        <td>США</td>
+                        <td>Россия</td>
+                        <td>Россия</td>
+                    </tr>
+                    <tr>
+                        <td>Калибр</td>
+                        <td>12/70</td>
+                        <td>12/70, 12/76</td>
+                        <td>12/70, 12/76</td>
+                    </tr>
+                    <tr>
+                        <td>Тип автоматики</td>
+                        <td>Свободный затвор</td>
+                        <td>Газоотводная</td>
+                        <td>Газоотводная</td>
+                    </tr>
+                    <tr>
+                        <td>Вес (кг)</td>
+                        <td>5,2</td>
+                        <td>4,5</td>
+                        <td>3,6</td>
+                    </tr>
+                    <tr>
+                        <td>Длина (мм)</td>
+                        <td>991</td>
+                        <td>1145</td>
+                        <td>1145</td>
+                    </tr>
+                    <tr>
+                        <td>Темп стрельбы</td>
+                        <td>300 выстр/мин</td>
+                        <td>Полуавтомат</td>
+                        <td>Полуавтомат</td>
+                    </tr>
+                    <tr>
+                        <td>Ёмкость магазина</td>
+                        <td>8/20</td>
+                        <td>4-8</td>
+                        <td>2-10</td>
+                    </tr>
+                    <tr>
+                        <td>Основное применение</td>
+                        <td>Боевые действия</td>
+                        <td>Полиция, охрана</td>
+                        <td>Охота, спорт, самооборона</td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
     </div>
     
     <footer>
-        <p>© 2023 История Чернобыля и Припяти</p>
-        <p>Сайт создан в образовательных целях</p>
+        <p>© 2023 Сайт о боевых дробовиках</p>
+        <p>Информационный ресурс для изучения огнестрельного оружия</p>
+        <div class="footer-links">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+            <a href="#"><i class="fab fa-vk"></i></a>
+        </div>
     </footer>
 </body>
 </html>
