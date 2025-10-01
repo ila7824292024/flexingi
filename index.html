@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Breaking Code | Программирование с точностью до атома</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Портфолио | Илья Курбанов</title>
     <style>
         * {
             margin: 0;
@@ -13,871 +12,538 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        :root {
-            --blue: #1a75ff;
-            --dark-blue: #0052cc;
-            --yellow: #ffcc00;
-            --green: #00cc66;
-            --red: #ff3333;
-            --dark: #0d0d0d;
-            --gray: #1a1a1a;
-            --light-gray: #333333;
-        }
-
         body {
-            background-color: var(--dark);
-            color: #fff;
+            background: #0a0a0a url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" opacity="0.05"><rect width="100" height="100" fill="none" stroke="%23333" stroke-width="2"/></svg>');
+            color: #e0e0e0;
             line-height: 1.6;
-            overflow-x: hidden;
+            padding: 20px;
+            min-height: 100vh;
         }
 
         .container {
-            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 20px;
         }
 
-        /* Химические эффекты */
-        .lab-effects {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .bubble {
-            position: absolute;
-            background: rgba(26, 117, 255, 0.1);
-            border-radius: 50%;
-            animation: float 15s infinite linear;
-        }
-
-        .bubble:nth-child(1) {
-            width: 100px;
-            height: 100px;
-            top: 10%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .bubble:nth-child(2) {
-            width: 150px;
-            height: 150px;
-            top: 60%;
-            left: 80%;
-            animation-delay: 5s;
-        }
-
-        .bubble:nth-child(3) {
-            width: 80px;
-            height: 80px;
-            top: 80%;
-            left: 20%;
-            animation-delay: 10s;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-            100% { transform: translateY(0) rotate(360deg); }
-        }
-
-        /* Hero секция */
-        .hero {
-            background: linear-gradient(rgba(13, 13, 13, 0.9), rgba(13, 13, 13, 0.7)), 
-                        url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            position: relative;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background: var(--red);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 30px;
-            font-weight: bold;
+        header {
+            grid-column: 1 / -1;
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid #3a1c1c;
+            padding: 15px;
             margin-bottom: 20px;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            box-shadow: 0 0 10px rgba(139, 0, 0, 0.3);
         }
 
         h1 {
-            font-size: 4rem;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .blue-text {
-            color: var(--blue);
-        }
-
-        .hero-subtitle {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--yellow);
-        }
-
-        .hero-description {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: #ccc;
-        }
-
-        /* Кнопки */
-        .cta-button {
-            background: linear-gradient(45deg, var(--blue), var(--green));
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(26, 117, 255, 0.4);
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(26, 117, 255, 0.6);
-        }
-
-        .cta-button-large {
-            background: linear-gradient(45deg, var(--blue), var(--green));
-            color: white;
-            border: none;
-            padding: 20px 40px;
-            font-size: 1.5rem;
-            font-weight: bold;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(26, 117, 255, 0.4);
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 30px;
-        }
-
-        .cta-button-large:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(26, 117, 255, 0.6);
-        }
-
-        .course-button {
-            background: var(--blue);
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            font-size: 1rem;
-            font-weight: bold;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .course-button:hover {
-            background: var(--dark-blue);
-        }
-
-        /* Таймер */
-        .countdown-timer {
-            margin-top: 30px;
-            padding: 15px;
-            background: rgba(255, 51, 51, 0.2);
-            border-radius: 5px;
-            display: inline-block;
-        }
-
-        /* Секции */
-        section {
-            padding: 80px 0;
-        }
-
-        h2 {
-            font-size: 2.5rem;
+            color: #c93030;
             text-align: center;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            margin-bottom: 50px;
-            color: #ccc;
-        }
-
-        /* Карточки курсов */
-        .courses-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .course-card {
-            background: var(--gray);
-            border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-            position: relative;
-            border: 1px solid var(--light-gray);
-        }
-
-        .course-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .course-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: var(--red);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 3px;
-            font-weight: bold;
-            z-index: 2;
-        }
-
-        .course-image {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .course-content {
-            padding: 20px;
-        }
-
-        .course-card h3 {
-            font-size: 1.5rem;
+            font-size: 2.2rem;
+            text-shadow: 0 0 5px rgba(201, 48, 48, 0.7);
             margin-bottom: 10px;
-            color: var(--yellow);
         }
 
-        .course-price {
+        .intro {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #b0b0b0;
+        }
+
+        .sidebar {
+            background: rgba(15, 15, 15, 0.9);
+            border: 1px solid #3a1c1c;
+            padding: 15px;
+            box-shadow: 0 0 10px rgba(139, 0, 0, 0.2);
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .inventory {
+            background: rgba(15, 15, 15, 0.9);
+            border: 1px solid #3a1c1c;
+            padding: 15px;
+            box-shadow: 0 0 10px rgba(139, 0, 0, 0.2);
+        }
+
+        .inventory-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #3a1c1c;
+            padding-bottom: 10px;
             margin-bottom: 15px;
         }
 
-        .old-price {
-            text-decoration: line-through;
-            color: #999;
-            margin-right: 10px;
-        }
-
-        .new-price {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--green);
-        }
-
-        .course-card ul {
-            margin: 15px 0;
-            list-style: none;
-        }
-
-        .course-card li {
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
+        .item-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
             gap: 10px;
         }
 
-        /* Преимущества */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .feature {
+        .item {
+            background: rgba(30, 30, 30, 0.7);
+            border: 1px solid #4a2c2c;
+            padding: 10px;
             text-align: center;
-            padding: 30px 20px;
-            background: var(--gray);
-            border-radius: 10px;
-            border: 1px solid var(--light-gray);
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            color: var(--blue);
-            margin-bottom: 20px;
-        }
-
-        .feature h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--yellow);
-        }
-
-        /* Отзывы */
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .testimonial {
-            background: var(--gray);
-            padding: 30px;
-            border-radius: 10px;
-            border-left: 5px solid var(--blue);
-        }
-
-        .testimonial-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background-color: var(--light-gray);
-            margin-bottom: 15px;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .testimonial-author {
-            font-weight: bold;
-            color: var(--yellow);
-            margin-top: 15px;
-            display: block;
-        }
-
-        /* CTA секция */
-        .cta {
-            background: linear-gradient(rgba(13, 13, 13, 0.9), rgba(13, 13, 13, 0.9)), 
-                        url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
-            text-align: center;
-        }
-
-        .cta-stats {
+            cursor: pointer;
+            transition: all 0.3s;
+            min-height: 80px;
             display: flex;
+            flex-direction: column;
             justify-content: center;
-            gap: 50px;
-            margin: 30px 0;
-            flex-wrap: wrap;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            display: block;
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: var(--green);
-        }
-
-        .stat-label {
-            font-size: 1rem;
-            color: #ccc;
-        }
-
-        /* Форма записи */
-        .enrollment-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
             align-items: center;
-            justify-content: center;
         }
 
-        .modal-content {
-            background: var(--gray);
-            padding: 40px;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 500px;
-            position: relative;
-            border: 2px solid var(--blue);
+        .item:hover {
+            background: rgba(50, 30, 30, 0.9);
+            border-color: #c93030;
+            box-shadow: 0 0 8px rgba(201, 48, 48, 0.5);
         }
 
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #ccc;
+        .item-icon {
+            font-size: 24px;
+            margin-bottom: 5px;
         }
 
-        .close-modal:hover {
-            color: white;
+        .item-name {
+            font-size: 0.8rem;
+            color: #d0d0d0;
         }
 
-        .form-group {
+        .item-details {
+            background: rgba(15, 15, 15, 0.9);
+            border: 1px solid #3a1c1c;
+            padding: 15px;
+            box-shadow: 0 0 10px rgba(139, 0, 0, 0.2);
+        }
+
+        .item-title {
+            color: #c93030;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 5px rgba(201, 48, 48, 0.5);
+        }
+
+        .item-price {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .item-condition {
+            color: #a0a0a0;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .parameters {
             margin-bottom: 20px;
         }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--yellow);
-        }
-
-        .form-group input, .form-group select {
-            width: 100%;
-            padding: 12px;
-            border-radius: 5px;
-            border: 1px solid var(--light-gray);
-            background: var(--dark);
-            color: white;
-        }
-
-        .submit-btn {
-            background: var(--blue);
-            color: white;
-            border: none;
-            padding: 15px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-            transition: background 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            background: var(--dark-blue);
-        }
-
-        .success-message {
-            display: none;
-            text-align: center;
-            padding: 20px;
-            background: var(--green);
-            color: white;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-
-        /* Футер */
-        footer {
-            background: var(--gray);
-            padding: 40px 0;
-            text-align: center;
-            border-top: 1px solid var(--light-gray);
-        }
-
-        .footer-links {
+        .parameter {
             display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 20px 0;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--blue);
-        }
-
-        .copyright {
-            margin-top: 20px;
-            color: #666;
+            justify-content: space-between;
+            margin-bottom: 5px;
             font-size: 0.9rem;
         }
 
-        /* Адаптивность */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
+        .parameter-name {
+            color: #b0b0b0;
+        }
+
+        .parameter-value {
+            color: #e0e0e0;
+        }
+
+        .links {
+            margin-top: 20px;
+        }
+
+        .link-item {
+            background: rgba(30, 30, 30, 0.7);
+            border: 1px solid #4a2c2c;
+            padding: 10px;
+            margin-bottom: 10px;
+            transition: all 0.3s;
+        }
+
+        .link-item:hover {
+            background: rgba(50, 30, 30, 0.9);
+            border-color: #c93030;
+        }
+
+        .link-item a {
+            color: #c93030;
+            text-decoration: none;
+            display: block;
+        }
+
+        .link-item a:hover {
+            text-decoration: underline;
+        }
+
+        .character-info {
+            background: rgba(15, 15, 15, 0.9);
+            border: 1px solid #3a1c1c;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(139, 0, 0, 0.2);
+        }
+
+        .character-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .character-avatar {
+            width: 80px;
+            height: 80px;
+            background: #2a2a2a;
+            border: 1px solid #4a2c2c;
+            margin-right: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #c93030;
+            font-size: 2rem;
+        }
+
+        .character-name {
+            color: #c93030;
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .character-title {
+            color: #b0b0b0;
+            font-size: 1rem;
+        }
+
+        .skills {
+            margin-top: 20px;
+        }
+
+        .skill-category {
+            margin-bottom: 15px;
+        }
+
+        .skill-category h3 {
+            color: #c93030;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #3a1c1c;
+            padding-bottom: 5px;
+        }
+
+        .skill {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .skill-name {
+            color: #b0b0b0;
+        }
+
+        .skill-level {
+            color: #e0e0e0;
+        }
+
+        footer {
+            grid-column: 1 / -1;
+            text-align: center;
+            margin-top: 30px;
+            padding: 15px;
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid #3a1c1c;
+            color: #a0a0a0;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
             }
             
-            .hero-subtitle {
-                font-size: 1.3rem;
+            .main-content {
+                grid-template-columns: 1fr;
             }
             
-            .cta-stats {
-                gap: 20px;
+            .item-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
-            
-            .stat-number {
-                font-size: 2rem;
+        }
+
+        @media (max-width: 600px) {
+            .item-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
 </head>
 <body>
-    <!-- Химическая лаборатория -->
-    <div class="lab-effects">
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
+    <div class="container">
+        <header>
+            <h1>ПОРТФОЛИО СТАЛКЕРА</h1>
+            <p class="intro">Привет, меня зовут Илья Курбанов, это мой портфолио с информацией что я могу хорошо делать.</p>
+        </header>
+
+        <div class="sidebar">
+            <div class="character-info">
+                <div class="character-header">
+                    <div class="character-avatar">ИК</div>
+                    <div>
+                        <div class="character-name">Илья Курбанов</div>
+                        <div class="character-title">Front-end разработчик</div>
+                    </div>
+                </div>
+                
+                <div class="skills">
+                    <div class="skill-category">
+                        <h3>Навыки</h3>
+                        <div class="skill">
+                            <span class="skill-name">HTML/CSS</span>
+                            <span class="skill-level">Эксперт</span>
+                        </div>
+                        <div class="skill">
+                            <span class="skill-name">JavaScript</span>
+                            <span class="skill-level">Эксперт</span>
+                        </div>
+                        <div class="skill">
+                            <span class="skill-name">React</span>
+                            <span class="skill-level">Эксперт</span>
+                        </div>
+                        <div class="skill">
+                            <span class="skill-name">Figma/Photoshop</span>
+                            <span class="skill-level">Базовый</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="links">
+                <h3>Артефакты</h3>
+                <div class="link-item">
+                    <a href="https://ila7824292024.github.io/ila782429/" target="_blank">Первый сайт</a>
+                </div>
+                <div class="link-item">
+                    <a href="https://www.figma.com/design/BGUGnzq5wYR6NUGNhEFQKz/Untitled?node-id=0-1" target="_blank">Дизайн в Figma</a>
+                </div>
+                <div class="link-item">
+                    <a href="https://ila7824292024.github.io/first/" target="_blank">Ранняя работа</a>
+                </div>
+                <div class="link-item">
+                    <a href="https://kurbanov75.wordpress.com/опять-сайт/" target="_blank">WordPress сайт</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="inventory">
+                <div class="inventory-header">
+                    <h2>ИНВЕНТАРЬ</h2>
+                    <div>Вес: 35 / 50 кг</div>
+                </div>
+                
+                <div class="item-grid">
+                    <div class="item" onclick="showItemDetails('html-css')">
+                        <div class="item-icon">📄</div>
+                        <div class="item-name">HTML/CSS</div>
+                    </div>
+                    <div class="item" onclick="showItemDetails('javascript')">
+                        <div class="item-icon">⚡</div>
+                        <div class="item-name">JavaScript</div>
+                    </div>
+                    <div class="item" onclick="showItemDetails('react')">
+                        <div class="item-icon">🔷</div>
+                        <div class="item-name">React</div>
+                    </div>
+                    <div class="item" onclick="showItemDetails('redux')">
+                        <div class="item-icon">🔄</div>
+                        <div class="item-name">Redux</div>
+                    </div>
+                    <div class="item" onclick="showItemDetails('git')">
+                        <div class="item-icon">🌿</div>
+                        <div class="item-name">Git</div>
+                    </div>
+                    <div class="item" onclick="showItemDetails('figma')">
+                        <div class="item-icon">🎨</div>
+                        <div class="item-name">Figma</div>
+                    </div>
+                    <div class="item" onclick="showItemDetails('photoshop')">
+                        <div class="item-icon">🖼️</div>
+                        <div class="item-name">Photoshop</div>
+                    </div>
+                    <div class="item" onclick="showItemDetails('nodejs')">
+                        <div class="item-icon">🟢</div>
+                        <div class="item-name">Node.js</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-details">
+                <div class="item-title">HTML/CSS</div>
+                <div class="item-price">
+                    <span>Уровень владения:</span>
+                    <span>Эксперт</span>
+                </div>
+                <div class="item-condition">
+                    Создание адаптивных, семантических и доступных веб-интерфейсов. Глубокая работа с CSS Grid, Flexbox, анимациями и препроцессорами.
+                </div>
+                
+                <div class="parameters">
+                    <div class="parameter">
+                        <span class="parameter-name">Адаптивность</span>
+                        <span class="parameter-value">+95%</span>
+                    </div>
+                    <div class="parameter">
+                        <span class="parameter-name">Кроссбраузерность</span>
+                        <span class="parameter-value">+90%</span>
+                    </div>
+                    <div class="parameter">
+                        <span class="parameter-name">Семантика</span>
+                        <span class="parameter-value">+85%</span>
+                    </div>
+                    <div class="parameter">
+                        <span class="parameter-name">Доступность</span>
+                        <span class="parameter-value">+80%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            Зона отчуждения портфолио | Контакты: telegram: @ваш_телеграм | email: ваш_email@example.com
+        </footer>
     </div>
-
-    <!-- Hero секция -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">СКИДКА 99.1%</div>
-                <h1>BREAKING <span class="blue-text">CODE</span></h1>
-                <p class="hero-subtitle">Превращаем химию кода в чистый доход</p>
-                <p class="hero-description">Учись у лучших. Методы Хайзенберга в программировании.<br>Никакой "чепухи" — только чистый JavaScript и реактивная химия.</p>
-                <button class="cta-button" onclick="scrollToCourses()">
-                    <i class="fas fa-flask"></i> НАЧАТЬ КОOK!
-                </button>
-                <div class="countdown-timer" id="countdown">
-                    <span>Акция закончится через: 10:00</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Курсы -->
-    <section id="courses" class="courses">
-        <div class="container">
-            <h2>НАША <span class="blue-text">"ПРОДУКЦИЯ"</span></h2>
-            <p class="section-subtitle">Курсы, которые меняют правила игры. Чистота кода — 99.1%</p>
-            
-            <div class="courses-grid">
-                <div class="course-card">
-                    <div class="course-badge">ХИТ</div>
-                    <div class="course-image" style="background-image: url('https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');"></div>
-                    <div class="course-content">
-                        <h3>«Голубой JavaScript»</h3>
-                        <p class="course-price">
-                            <span class="old-price">$99.99</span>
-                            <span class="new-price">$0.99</span>
-                        </p>
-                        <p>Освой легендарную формулу Хайзенберга для создания чистого, эффективного кода.</p>
-                        <ul>
-                            <li><i class="fas fa-atom"></i> React + Vue.js</li>
-                            <li><i class="fas fa-vial"></i> Тестирование</li>
-                            <li><i class="fas fa-rocket"></i> Оптимизация</li>
-                        </ul>
-                        <button class="course-button" onclick="buyCourse('Голубой JavaScript')">
-                            <i class="fas fa-shopping-cart"></i> ДОБАВИТЬ В КОРЗИНУ
-                        </button>
-                    </div>
-                </div>
-
-                <div class="course-card">
-                    <div class="course-badge">NEW</div>
-                    <div class="course-image" style="background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');"></div>
-                    <div class="course-content">
-                        <h3>«Химия Backend-а»</h3>
-                        <p class="course-price">
-                            <span class="old-price">$149.99</span>
-                            <span class="new-price">$1.49</span>
-                        </p>
-                        <p>Создай мощные серверные решения. От простых компонентов к сложным системам.</p>
-                        <ul>
-                            <li><i class="fas fa-server"></i> Node.js + Express</li>
-                            <li><i class="fas fa-database"></i> Базы данных</li>
-                            <li><i class="fas fa-shield-alt"></i> Безопасность</li>
-                        </ul>
-                        <button class="course-button" onclick="buyCourse('Химия Backend-а')">
-                            <i class="fas fa-shopping-cart"></i> ДОБАВИТЬ В КОРЗИНУ
-                        </button>
-                    </div>
-                </div>
-
-                <div class="course-card">
-                    <div class="course-badge">PREMIUM</div>
-                    <div class="course-image" style="background-image: url('https://images.unsplash.com/photo-1526379879527-8559ecfcaec0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');"></div>
-                    <div class="course-content">
-                        <h3>«Кристальный Python»</h3>
-                        <p class="course-price">
-                            <span class="old-price">$199.99</span>
-                            <span class="new-price">$1.99</span>
-                        </p>
-                        <p>Для ценителей чистоты и элегантности. Идеальные кристаллы кода.</p>
-                        <ul>
-                            <li><i class="fas fa-robot"></i> AI и Машинное обучение</li>
-                            <li><i class="fas fa-chart-line"></i> Аналитика данных</li>
-                            <li><i class="fas fa-magic"></i> Автоматизация</li>
-                        </ul>
-                        <button class="course-button" onclick="buyCourse('Кристальный Python')">
-                            <i class="fas fa-shopping-cart"></i> ДОБАВИТЬ В КОРЗИНУ
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Преимущества -->
-    <section class="features">
-        <div class="container">
-            <h2>ПОЧЕМУ МЫ — <span class="blue-text">ЭТО НАДЕЖНО?</span></h2>
-            <div class="features-grid">
-                <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-user-secret"></i>
-                    </div>
-                    <h3>Анонимность</h3>
-                    <p>Учись инкогнито. Никаких следов в цифровом пространстве.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3>Скорость</h3>
-                    <p>От нуля до junior developer за 3 месяца. Проверенная методология.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-flask"></i>
-                    </div>
-                    <h3>Качество</h3>
-                    <p>99.1% практики. Никакой "воды" и бесполезной теории.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Безопасность</h3>
-                    <p>Знания, которые нельзя "украсть". Уникальные методики.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Отзывы -->
-    <section class="testimonials">
-        <div class="container">
-            <h2>ОТЗЫВЫ <span class="blue-text">"КЛИЕНТОВ"</span></h2>
-            <div class="testimonials-grid">
-                <div class="testimonial">
-                    <div class="testimonial-avatar" style="background-image: url('https://i.imgur.com/3qY9W9j.png');"></div>
-                    <p>"Я был школьным учителем. Теперь мой код знает весь мир. Breaking Code изменил всё."</p>
-                    <span class="testimonial-author">- У. У.</span>
-                </div>
-                <div class="testimonial">
-                    <div class="testimonial-avatar" style="background-color: #2d2d2d;"></div>
-                    <p>"Благодаря этим курсам смог автоматизировать свой бизнес. Эффективность выросла на 300%."</p>
-                    <span class="testimonial-author">- G. F.</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta">
-        <div class="container">
-            <div class="cta-content">
-                <h2>ПОРА <span class="blue-text">ДЕЙСТВОВАТЬ!</span></h2>
-                <p>Не жди, пока твои навыки устареют. Начни сегодня — получи результат завтра.</p>
-                <div class="cta-stats">
-                    <div class="stat">
-                        <span class="stat-number">99.1%</span>
-                        <span class="stat-label">Успешных студентов</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">24/7</span>
-                        <span class="stat-label">Поддержка</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">$100K+</span>
-                        <span class="stat-label">Средняя зарплата</span>
-                    </div>
-                </div>
-                <button class="cta-button-large" onclick="showEnrollmentForm()">
-                    <i class="fas fa-graduation-cap"></i> ЗАПИСАТЬСЯ НА КУРСЫ
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Форма записи -->
-    <div class="enrollment-modal" id="enrollmentModal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeEnrollmentForm()">&times;</span>
-            <h2>ЗАПИСЬ НА КУРС</h2>
-            <p>Заполни форму и начни свое превращение в программиста-профи!</p>
-            
-            <form id="enrollmentForm">
-                <div class="form-group">
-                    <label for="name">Имя и фамилия</label>
-                    <input type="text" id="name" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="phone">Телефон</label>
-                    <input type="tel" id="phone" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="course">Выберите курс</label>
-                    <select id="course" required>
-                        <option value="">-- Выберите курс --</option>
-                        <option value="Голубой JavaScript">Голубой JavaScript - $0.99</option>
-                        <option value="Химия Backend-а">Химия Backend-а - $1.49</option>
-                        <option value="Кристальный Python">Кристальный Python - $1.99</option>
-                    </select>
-                </div>
-                
-                <button type="submit" class="submit-btn">ЗАПИСАТЬСЯ СО СКИДКОЙ</button>
-            </form>
-            
-            <div class="success-message" id="successMessage">
-                <h3>Успех! Ты в игре!</h3>
-                <p>Мы свяжемся с тобой в течение 24 часов для подтверждения записи.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Футер -->
-    <footer>
-        <div class="container">
-            <h3>BREAKING <span class="blue-text">CODE</span></h3>
-            <p>Программирование с точностью до атома</p>
-            <div class="footer-links">
-                <a href="#">О нас</a>
-                <a href="#">Контакты</a>
-                <a href="#">Политика конфиденциальности</a>
-                <a href="#">Условия использования</a>
-            </div>
-            <p class="copyright">© 2023 Breaking Code. Все права защищены. Say my name!</p>
-        </div>
-    </footer>
 
     <script>
-        // Таймер обратного отсчета
-        function startCountdown() {
-            let timeLeft = 10 * 60; // 10 минут в секундах
+        function showItemDetails(item) {
+            const details = document.querySelector('.item-details');
             
-            const timer = setInterval(() => {
-                const minutes = Math.floor(timeLeft / 60);
-                const seconds = timeLeft % 60;
-                
-                document.getElementById('countdown').innerHTML = 
-                    `Акция закончится через: ${minutes}:${seconds.toString().padStart(2, '0')}`;
-                
-                if (timeLeft === 0) {
-                    clearInterval(timer);
-                    document.getElementById('countdown').innerHTML = "Акция завершена!";
-                } else {
-                    timeLeft--;
+            const items = {
+                'html-css': {
+                    title: 'HTML/CSS',
+                    level: 'Эксперт',
+                    description: 'Создание адаптивных, семантических и доступных веб-интерфейсов. Глубокая работа с CSS Grid, Flexbox, анимациями и препроцессорами.',
+                    params: [
+                        { name: 'Адаптивность', value: '+95%' },
+                        { name: 'Кроссбраузерность', value: '+90%' },
+                        { name: 'Семантика', value: '+85%' },
+                        { name: 'Доступность', value: '+80%' }
+                    ]
+                },
+                'javascript': {
+                    title: 'JavaScript',
+                    level: 'Эксперт',
+                    description: 'Разработка интерактивных веб-приложений с использованием современных возможностей ES6+, асинхронного программирования и работы с API.',
+                    params: [
+                        { name: 'ES6+', value: '+90%' },
+                        { name: 'Асинхронность', value: '+85%' },
+                        { name: 'API', value: '+80%' },
+                        { name: 'Оптимизация', value: '+75%' }
+                    ]
+                },
+                'react': {
+                    title: 'React',
+                    level: 'Эксперт',
+                    description: 'Создание компонентных пользовательских интерфейсов с использованием React, хуков, контекста и оптимизации производительности.',
+                    params: [
+                        { name: 'Компоненты', value: '+90%' },
+                        { name: 'Хуки', value: '+85%' },
+                        { name: 'Контекст', value: '+80%' },
+                        { name: 'Производительность', value: '+75%' }
+                    ]
+                },
+                'redux': {
+                    title: 'Redux',
+                    level: 'Эксперт',
+                    description: 'Управление состоянием приложений с использованием Redux, Redux Toolkit и middleware для сложных бизнес-логик.',
+                    params: [
+                        { name: 'Управление состоянием', value: '+85%' },
+                        { name: 'Redux Toolkit', value: '+80%' },
+                        { name: 'Middleware', value: '+75%' },
+                        { name: 'DevTools', value: '+70%' }
+                    ]
+                },
+                'git': {
+                    title: 'Git',
+                    level: 'Продвинутый',
+                    description: 'Версионный контроль с использованием Git, работа с ветками, мердж-реквестами и разрешением конфликтов.',
+                    params: [
+                        { name: 'Ветвление', value: '+80%' },
+                        { name: 'Слияние', value: '+75%' },
+                        { name: 'GitHub/GitLab', value: '+85%' },
+                        { name: 'CI/CD', value: '+65%' }
+                    ]
+                },
+                'figma': {
+                    title: 'Figma',
+                    level: 'Базовый',
+                    description: 'Создание прототипов интерфейсов, работа с компонентами и подготовка макетов для разработки.',
+                    params: [
+                        { name: 'Прототипирование', value: '+70%' },
+                        { name: 'Компоненты', value: '+65%' },
+                        { name: 'Авто-лейаут', value: '+60%' },
+                        { name: 'Экспорт', value: '+75%' }
+                    ]
+                },
+                'photoshop': {
+                    title: 'Photoshop',
+                    level: 'Базовый',
+                    description: 'Базовая обработка изображений, создание графических элементов для веб-интерфейсов.',
+                    params: [
+                        { name: 'Обработка', value: '+65%' },
+                        { name: 'Графика', value: '+60%' },
+                        { name: 'Экспорт', value: '+70%' },
+                        { name: 'Оптимизация', value: '+65%' }
+                    ]
+                },
+                'nodejs': {
+                    title: 'Node.js',
+                    level: 'Базовый',
+                    description: 'Разработка серверной логики, работа с Express.js и создание простых API.',
+                    params: [
+                        { name: 'Express.js', value: '+65%' },
+                        { name: 'API', value: '+60%' },
+                        { name: 'NPM', value: '+70%' },
+                        { name: 'Базы данных', value: '+55%' }
+                    ]
                 }
-            }, 1000);
-        }
-
-        // Плавная прокрутка к курсам
-        function scrollToCourses() {
-            document.getElementById('courses').scrollIntoView({ 
-                behavior: 'smooth' 
-            });
-        }
-
-        // Покупка курса
-        function buyCourse(courseName) {
-            document.getElementById('course').value = courseName;
-            showEnrollmentForm();
-        }
-
-        // Показать форму записи
-        function showEnrollmentForm() {
-            document.getElementById('enrollmentModal').style.display = 'flex';
-        }
-
-        // Закрыть форму записи
-        function closeEnrollmentForm() {
-            document.getElementById('enrollmentModal').style.display = 'none';
-            document.getElementById('successMessage').style.display = 'none';
-            document.getElementById('enrollmentForm').reset();
-        }
-
-        // Обработка формы
-        document.getElementById('enrollmentForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Здесь должна быть логика отправки данных на сервер
-            // Для демонстрации просто покажем сообщение об успехе
-            document.getElementById('successMessage').style.display = 'block';
-            
-            // Через 3 секунды закрываем форму
-            setTimeout(() => {
-                closeEnrollmentForm();
-            }, 3000);
-        });
-
-        // Закрытие модального окна при клике вне его
-        window.onclick = function(event) {
-            const modal = document.getElementById('enrollmentModal');
-            if (event.target === modal) {
-                closeEnrollmentForm();
-            }
-        }
-
-        // Запуск при загрузке страницы
-        document.addEventListener('DOMContentLoaded', function() {
-            startCountdown();
-            
-            // Анимация появления элементов при скролле
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
             };
 
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, observerOptions);
-
-            // Наблюдаем за карточками
-            document.querySelectorAll('.course-card, .feature, .testimonial').forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
-                el.style.transition = 'all 0.6s ease';
-                observer.observe(el);
-            });
-        });
+            const itemData = items[item];
+            
+            details.innerHTML = `
+                <div class="item-title">${itemData.title}</div>
+                <div class="item-price">
+                    <span>Уровень владения:</span>
+                    <span>${itemData.level}</span>
+                </div>
+                <div class="item-condition">
+                    ${itemData.description}
+                </div>
+                
+                <div class="parameters">
+                    ${itemData.params.map(param => `
+                        <div class="parameter">
+                            <span class="parameter-name">${param.name}</span>
+                            <span class="parameter-value">${param.value}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
     </script>
 </body>
 </html>
